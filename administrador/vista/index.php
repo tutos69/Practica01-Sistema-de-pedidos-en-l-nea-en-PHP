@@ -1,6 +1,16 @@
 <?php
-if ($_POST) {
-    header('Location:../vista/restaurantes/inicio.php');
+$accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
+switch ($accion) {
+    case 'Cancelar':
+        #echo "Ya valio";
+        header('Location:../../index.php');
+        break;
+    case 'Entrar':
+        #header('Location:../vista/restaurantes/inicio.php');
+        break;
+    case 'CrearCuenta':
+        header('Location:CrearCuenta.php');
+        break;
 }
 ?>
 <!DOCTYPE html>
@@ -33,7 +43,9 @@ if ($_POST) {
                         <input type="password" class="form-control" name="contracenia" placeholder="Contraceña">
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-secondary">Entrar</button>
+                    <button type="submit" name="accion" value="Cancelar" class="btn btn-danger">Cancelar</button>
+                    <button type="submit" name="accion" value="Entrar" class="btn btn-primary">Entrar</button>
+                    <button type="submit" name="accion" value="CrearCuenta" class="btn btn-dark">Crear Cuenta</button>
                 </form>
             </div>
         </div>
