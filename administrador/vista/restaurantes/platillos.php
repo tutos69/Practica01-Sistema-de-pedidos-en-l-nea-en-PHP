@@ -9,7 +9,13 @@ $txtPresio = (isset($_POST['txtPresio'])) ? $_POST['txtPresio'] : "";
 $txtImagne = (isset($_FILES['txtImagne']['name'])) ? $_FILES['txtImagne']['name'] : "";
 $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 $precio = doubleval($txtPresio);
-include('../../config/conexion.php');
+
+
+$restauranteUsu = "SELECT * FROM app_restaurante WHERE res_usu=$codigoUsu ";
+$listadoUsuario = $coon->query($restauranteUsu);
+foreach ($listadoUsuario as $Restaurante) {
+    $idRestaurante = $Restaurante['res_id'];
+}
 switch ($accion) {
     case 'Agregar':
         #INSERT INTO app_producto (pro_nombre, pro_descripcion,pro_precio, pro_imagen) VALUES (:nombre,:descripcion,:precio,:imagen);
@@ -21,7 +27,7 @@ switch ($accion) {
             move_uploaded_file($tmpimagen, '../../../img/' . $nombreArchivo);
         }
 
-        $sentenciaSQL = "INSERT INTO app_producto VALUES (0,'$txtNombre','$txtDescripcion','$precio','$nombreArchivo')";
+        $sentenciaSQL = "INSERT INTO app_producto VALUES (0,'$txtNombre','$txtDescripcion','$precio','$nombreArchivo', '$idRestaurante')";
         if ($coon->query($sentenciaSQL) == true) {
         } else {
             echo "No Vale" . mysqli_error($coon);
@@ -85,7 +91,7 @@ switch ($accion) {
         break;
 }
 
-$sentenciaSQL = "SELECT * FROM app_producto ";
+$sentenciaSQL = "SELECT * FROM app_producto WHERE pro_res=$idRestaurante ";
 $listado = $coon->query($sentenciaSQL);
 ?>
 
@@ -119,7 +125,7 @@ $listado = $coon->query($sentenciaSQL);
                     </div>
                     <label class="form-label mt-4">Imagen:</label> <img src="../../../img/<?php echo $txtImagne; ?>" width="70" alt="">
                     <div class="form-floating mb-3">
-                        <input type="file" class="form-control" name="txtImagne" placeholder="Presio">
+                        <input type="file" class="form-control" name="txtImagne" placeholder="imagen">
                         <label for="floatingInput">Imagen</label>
                     </div>
                 </div>

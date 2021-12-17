@@ -129,9 +129,7 @@ $listado = $coon->query($sentenciaSQL);
             <?php foreach ($listado as $producto) { ?>
                 <tr>
                     <td><?php echo $producto['res_id']; ?></td>
-                   
                     <td><?php echo $producto['res_nombre']; ?></td>
-                   
                     <td><?php echo $producto['res_direccion']; ?></td>
                     <td><?php echo $producto['res_telefono']; ?></td>
                     <?php

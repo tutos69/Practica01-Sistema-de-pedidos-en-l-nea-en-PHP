@@ -15,9 +15,14 @@ switch ($accion) {
                 session_start();
                 $_SESSION['usu_correo']='ok';
                 $_SESSION['nombreUsuario']=$usuario;
-                header('Location:../../administrador/vista/usuario/clientes.php');
+                $cod = $usuarios['usu_id'];
+                header("Location:../../administrador/vista/usuario/clientes.php?codigo=$cod");
             }elseif(($usuarios['usu_correo']==$usuario) && ($usuarios['usu_contracenia'] == md5($contracenia)) && ($usuarios['usu_rol']=='R') ){
-                header('Location:../../administrador/vista/restaurantes/platillos.php');
+                session_start();
+                $cod = $usuarios['usu_id'];
+                $_SESSION['usu_correo']='ok';
+                $_SESSION['nombreUsuario']=$usuario;
+                header("Location:../../administrador/vista/restaurantes/platillos.php?codigo=$cod");
             }elseif(($usuarios['usu_correo']==$usuario) && ($usuarios['usu_contracenia'] == md5($contracenia)) && ($usuarios['usu_rol']=='C') ){
                 header('Location:../../administrador/vista/restaurantes/platillos.php');
             }
