@@ -1,16 +1,4 @@
-<?php
-$accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
-switch ($accion) {
-    case 'Cancelar':
-        #echo "Ya valio";
-        header('Location:../../index.php');
-        break;
-    case 'CrearCuenta':
-        
-        # header('Location:CrearCuenta.php');
-        break;
-}
-?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -32,7 +20,7 @@ switch ($accion) {
                 <p class="text-primary">
                     <legend>Crear Cuenta</legend>
                 </p>
-                <form method="POST">
+                <form method="POST" action="../controladores/crear_usuario.php">
                     <div class="row">
                         <div class="col-md-6">
                             <label class="form-label mt-4">Ingrese su Cedula:</label>
@@ -65,25 +53,25 @@ switch ($accion) {
                         <label for="floatingInput">Direccion</label>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <label for="exampleInputEmail1" class="form-label mt-4">Usuario</label>
+                        <input type="email" class="form-control" name="correo" aria-describedby="emailHelp" placeholder="Correo electronico">
+                        <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <label for="exampleInputPassword1" class="form-label mt-4">Contraceña </label>
+                        <input type="password" class="form-control" name="contracenia" placeholder="Contraceña">
                     </div>
                     <fieldset class="form-group">
                         <legend class="mt-4">Escoje Tu cargo</legend>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                <input type="radio" class="form-check-input" name="rol" value="C" id="optionsRadios1" value="option1" checked="">
                                 Cliente
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                                <input type="radio" class="form-check-input" name="rol" value="R"  id="optionsRadios2" value="option2">
                                 Restaurante
                             </label>
                         </div>

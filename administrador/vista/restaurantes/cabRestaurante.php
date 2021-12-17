@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['usuario'])){
-        header('Location:../index.php');
+        header('Location:../../../public/vista/Login.html');
     }
 
 ?>
@@ -23,7 +23,7 @@
             <a class="navbar-brand" href="#">Administrador</a>
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo $url?>">Inicio</a>
+                    <a class="nav-link" href="<?php echo $url?>">Sitio WEB</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="platillos.php">Platillos</a>

@@ -11,6 +11,5 @@
     if($coon->connect_error){
         die("Conexion Fallida" .$coon->connect_error);
     }else{
-        
     }
 ?>

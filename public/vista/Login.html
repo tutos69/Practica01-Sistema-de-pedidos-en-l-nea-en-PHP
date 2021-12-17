@@ -1,18 +1,4 @@
-<?php
-$accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
-switch ($accion) {
-    case 'Cancelar':
-        #echo "Ya valio";
-        header('Location:../../index.php');
-        break;
-    case 'Entrar':
-        #header('Location:../vista/restaurantes/inicio.php');
-        break;
-    case 'CrearCuenta':
-        header('Location:CrearCuenta.php');
-        break;
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +17,7 @@ switch ($accion) {
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
-                <form method="POST">
+                <form method="POST" action="../controladores/login.php">
                     <legend>Inicie Sesión</legend>
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="form-label mt-4">Usuario</label>
