@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand navbar-light bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">La Casona</a>
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
                     <a class="nav-link" href="../../index.html">Inicio</a>

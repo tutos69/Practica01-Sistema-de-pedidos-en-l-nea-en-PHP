@@ -69,7 +69,7 @@ $listado = $coon->query($sentenciaSQL);
 
     <div class="card">
         <div class="card-body">
-            <h1>Ingrese el Platillo</h1>
+            <h1>Restaurantes</h1>
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <fieldset>

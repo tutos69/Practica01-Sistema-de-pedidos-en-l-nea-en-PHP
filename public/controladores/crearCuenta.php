@@ -56,7 +56,7 @@ switch ($accion) {
                     foreach ($resultado as $usuarios){
                         $cod = $usuarios['usu_id'];
                     }
-                    header("Location:../../administrador/vista/clientes/inicio.php?codigo=$cod");
+                    header("Location:../../administrador/vista/clientes/Pedido.php?codigo=$cod");
                 } else {
                     echo 'holacsError Cliente';
                     $sentenciaSQL = "DELETE FROM app_usuario WHERE usu_id=$usuId ";
